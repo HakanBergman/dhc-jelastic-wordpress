@@ -9,15 +9,15 @@ var resp = {
 if (${settings.ls-addon:false}) {
   resp.nodes.push({
     nodeType: "llsmp",
-    tag: "5.4.1-php-7.3.7",
+    tag: "5.4.6-php-7.4.3",
     count: 1,
-    flexibleCloudlets: ${settings.flexibleCloudlets:16},
+    flexibleCloudlets: ${settings.flexibleCloudlets:1},
     fixedCloudlets: ${settings.fixedCloudlets:1},
     diskLimit: ${settings.diskLimit:10},
     nodeGroup: "cp",
     displayName: "AppServer",
     env: {
-      SERVER_WEBROOT: "/var/www/webroot/ROOT",
+      SERVER_WEBROOT: "/mnt/www",
       REDIS_ENABLED: "true",
       WAF: "${settings.waf}",
       WP_PROTECT: wpbfp,
@@ -31,13 +31,13 @@ if (!${settings.ls-addon:false}) {
     nodeType: "lemp",
     tag: "1.16.0-php-7.3.5",
     count: 1,
-    flexibleCloudlets: ${settings.flexibleCloudlets:16},
+    flexibleCloudlets: ${settings.flexibleCloudlets:1},
     fixedCloudlets: ${settings.fixedCloudlets:1},
     diskLimit: ${settings.diskLimit:10},
     nodeGroup: "cp",
     displayName: "AppServer",
     env: {
-      SERVER_WEBROOT: "/var/www/webroot/ROOT",
+      SERVER_WEBROOT: "/mnt/www",
       REDIS_ENABLED: "true"
     }
   })
